@@ -45,4 +45,18 @@ class CarloParser {
         }
     }
 
+
+
+    /**
+     * Возвращает информацию о категории по артикулу товара.
+     *
+     * @param  string     $sku
+     * @return array
+    */
+    function getCatBySku($sku) {
+        $html=file_get_contents('http://www.carlopazolini.com/ru/collection/?search='.$sku);
+        preg_match_all('#/ru/collection/(.+)/'.$sku.'#iu',$html,$m);
+        return $this->catList[$m[1][0]];
+    }
+
 }
