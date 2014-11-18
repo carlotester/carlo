@@ -3,6 +3,7 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING );
 header('Content-Type: text/html; charset=utf-8');
 include('CarloParser.class.php');
 
+
 $testSku=array(
     'JH-EGR1-6R1',
     'JH-LED2-2R3',
@@ -28,11 +29,11 @@ $parser->loadCat();
 
 foreach($testSku as $sku) {
   $cat=$parser->getCatBySku($sku);
-  print 'Товар <b>'.$sku.'</b> находится в разделе <a href=http://www.carlopazolini.com'.$cat['url'].'>'.$cat['title'].'</a><BR>';
+  print 'РўРѕРІР°СЂ <b>'.$sku.'</b> РЅР°С…РѕРґРёС‚СЃСЏ РІ СЂР°Р·РґРµР»Рµ <a href=http://www.carlopazolini.com'.$cat['url'].'>'.$cat['title'].'</a><BR>';
 }
 
-//Здесь хранятся категории в виде списка
+//Р—РґРµСЃСЊ С…СЂР°РЅСЏС‚СЃСЏ РєР°С‚РµРіРѕСЂРёРё РІ РІРёРґРµ СЃРїРёСЃРєР°
 print_r($parser->catList);
 
-//Здесь хранятся  категории в виде многомерного массива
+//Р—РґРµСЃСЊ С…СЂР°РЅСЏС‚СЃСЏ  РєР°С‚РµРіРѕСЂРёРё РІ РІРёРґРµ РјРЅРѕРіРѕРјРµСЂРЅРѕРіРѕ РјР°СЃСЃРёРІР°
 print_r($parser->catTree);
